@@ -35,21 +35,10 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         zero_count = nums.count(0)
-
-        while 0 in nums :
-            nums.remove(0)
-        for i in range(zero_count):
-            nums.append(0)
-
-        
-
-
-
-            
+        nums[:] = [i for i in nums if i != 0]
+        nums.extend([0] * zero_count)
+        return nums
 if __name__ == "__main__":
     solution = Solution()
     test_nums = [0, 1, 0, 3, 12]
     solution.moveZeroes(test_nums)
-
-
-
